@@ -2,6 +2,8 @@
 # Email: dahvid.schloss@echeloncyber.com
 # Date: 2023-21-11
 # Description: This script creates 100  random  users, creates OUs, and coorelating groups. 
+# Test change. Delete later.
+
 Import-Module ActiveDirectory
 
 # Set Variables
