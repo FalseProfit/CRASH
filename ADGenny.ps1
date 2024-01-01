@@ -40,7 +40,7 @@ Function Create-OUs {
 
 #Time to get banned from Fake Name Generator by calling it 100 times in 5 seconds or less.
 function Generate-Users {
-    $Interations = 0
+    $Iterations = 0
 
     While ($Iterations -ne 100) {
         $request = Invoke-WebRequest -UseBasicParsing -Uri $path
