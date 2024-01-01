@@ -43,7 +43,11 @@ function Get-RandomLine {
     $reader.Close()
 
     # Pick a number between 1 and what ever is max and don't tell me.
-    $randomLineNumber = Get-Random -Minimum 1 -Maximum $lineCount
+    # If statement to prevent 'Get-Random' from failing if there is one line in the wordlist.
+    if ($lineCount -eq 1) {$randomLineNumber = 1}
+    # The normal Get-Random function. Note, the 'Maximum' value will never be picked, so we add 1 to the Maximum so that the true maximum can be picked.
+    elseif ($lineCount -gt 1) {$randomLineNumber = Get-Random -Minimum 1 -Maximum ($lineCount + 1)}
+    else {Write-Host "[-] Please use a valid whole number greater than or equal to 1." ; exit 1}
 
     # now lets go get a random word
     $reader = New-Object -TypeName System.IO.StreamReader -ArgumentList $Path
